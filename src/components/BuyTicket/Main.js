@@ -14,7 +14,7 @@ const Main = ({tno,tclass,tnot,tprice,tfcs,tscs}) => {
      const [trainclass,setTrainclass]=useState('');
     
      useEffect(()=>{
-           axios.get("http://localhost:1000/train")
+           axios.get("https://train-server-cr9c.onrender.com/train")
                 .then(response=>{
                       setData(response.data);
                     });
@@ -32,7 +32,7 @@ const Main = ({tno,tclass,tnot,tprice,tfcs,tscs}) => {
              if(tclass=='firstClass')
              {
                 
-                  data.map((d)=>d.trainNumber==tno?axios.post(`http://localhost:1000/train/update/${d._id}`,  {
+                  data.map((d)=>d.trainNumber==tno?axios.post(`https://train-server-cr9c.onrender.com/train/update/${d._id}`,  {
                         firstClassSeats:tfcs-tnot,
                         secondClassSeats:tscs
                   }):'')
@@ -40,7 +40,7 @@ const Main = ({tno,tclass,tnot,tprice,tfcs,tscs}) => {
              if(tclass=='SecondClass')
              {
                  
-                  data.map((d)=>d.trainNumber==tno?axios.post(`http://localhost:1000/train/update/${d._id}`, {
+                  data.map((d)=>d.trainNumber==tno?axios.post(`https://train-server-cr9c.onrender.com/train/update/${d._id}`, {
                         firstClassSeats:tfcs,
                         secondClassSeats:tscs-tnot
                   }):'')
