@@ -5,7 +5,7 @@ import Train from './Train';
 const Main = ({from,to,date,bmt}) => {
    const [trains,setTrains]=useState([]);
   useEffect(()=>{
-      axios.get("http://localhost:1000/train/")
+      axios.get("https://train-server-cr9c.onrender.com/train/")
       .then(response=>{
             // console.log(response.data);  // TO SHOW IMPORTED DATA ARRAY FROM BACKEND
           setTrains(response.data);
